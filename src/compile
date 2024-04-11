@@ -1,0 +1,2 @@
+gcc -Wall -Werror -Wextra -pedantic -o game main.c loop.c utils.c texture_renderer.c weapon.c enemy.c walls.c collision_handling.c map_parser.c map_drawer.c cam_movement.c rotate_cam.c rain.c -I/usr/include/SDL2 -lSDL2 -lSDL2_image -lm
+
