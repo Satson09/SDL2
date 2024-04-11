@@ -1,4 +1,4 @@
-#include "inc/main.h"
+#include "main.h"
 #include <SDL2/SDL.h>
 
 
@@ -7,10 +7,6 @@ bool moveForward = false;
 bool moveBackward = false;
 bool moveLeft = false;
 bool moveRight = false;
-
-// Define flags for player rotation (if needed)
-bool rotateLeft = false;
-bool rotateRight = false;
 
 /* gameLoop - Runs the main game loop
  *
@@ -72,8 +68,7 @@ void gameLoop() {
                 // Add cases for other event types as needed
             }
         }
-
-        // Update player movement based on key flags
+	 // Update player movement based on key flags
         if (moveForward && !moveBackward) {
             // Move player forward
         } else if (moveBackward && !moveForward) {
@@ -85,12 +80,6 @@ void gameLoop() {
             // Move player right
         }
 
-        // Update player rotation based on key flags
-        if (rotateLeft && !rotateRight) {
-            // Rotate player left
-        } else if (rotateRight && !rotateLeft) {
-            // Rotate player right
-        }
 
         // Other game logic and rendering...
     }

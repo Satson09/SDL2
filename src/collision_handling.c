@@ -1,4 +1,4 @@
-#include "inc/main.h"
+#include "main.h"
 
 /**
  * @brief Checks for collision between the player and walls in the map.
@@ -16,7 +16,7 @@
  * @param newY          Output parameter for updated Y-coordinate of the player after collision.
  * @return 1 if collision detected, 0 otherwise.
  */
-int detectCollision(float playerX, float playerY, int map[][MAP_WIDTH], int mapWidth, int mapHeight, int playerWidth, int playerHeight, float movementX, float movementY, float *newX, float *newY) {
+int detectCollision(float playerX, float playerY, int map[][MAP_WIDTH], __attribute__((unused))int mapWidth, __attribute__((unused))int mapHeight, int playerWidth, int playerHeight, float movementX, float movementY, float *newX, float *newY) {
     // Calculate player's next position
     float nextPlayerX = playerX + movementX;
     float nextPlayerY = playerY + movementY;

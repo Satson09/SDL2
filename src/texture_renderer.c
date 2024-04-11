@@ -1,8 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "texture_renderer.h"
+#include "main.h"
 
-void loadTexture(const char* filename, SDL_Renderer* renderer) {
+void loadTexture(__attribute__((unused))const char* filename, SDL_Renderer* renderer) {
     // Load image from file
     SDL_Surface* surface = IMG_Load(filename);
     if (!surface) {

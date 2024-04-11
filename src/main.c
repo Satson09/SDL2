@@ -1,12 +1,6 @@
-#include "inc/main.h"
+#include "main.h"
 #include <stdio.h>
 #include <SDL2/SDL_image.h>
-
-// Define bool movement variables
-bool moveForward = false;
-bool moveBackward = false;
-bool moveLeft = false;
-bool moveRight = false;
 
 /**
  * main - Entry point of the program
@@ -18,7 +12,7 @@ int main(int argc, char* argv[])
 {
     if (argc != 2)
     {
-        printf("Usage: %s <map_file>\n", argv[0]);
+        printf("Usage: %s <map_txt>\n", argv[0]);
         return 1;
     }
 
@@ -59,7 +53,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    Camera camera = {2, 2, 0};
+    Camera __attribute__((unused))camera = {2, 2, 0};
 
     // Load ground and ceiling textures
     loadTexture("ground_texture.png", renderer);

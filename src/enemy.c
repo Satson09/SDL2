@@ -1,4 +1,4 @@
-#include "inc/main.h"
+#include "main.h"
 #include <SDL2/SDL_image.h>
 
 // Function definition

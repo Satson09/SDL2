@@ -1,4 +1,4 @@
-#include "inc/main.h"
+#include "main.h"
 /**
  * @brief Updates the camera position based on keyboard input.
  *

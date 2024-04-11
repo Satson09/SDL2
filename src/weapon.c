@@ -1,4 +1,4 @@
-#include "inc/main.h"
+#include "main.h"
 #include <SDL2/SDL_image.h>
 
 // Load weapon textures
@@ -23,7 +23,7 @@ void loadWeaponTextures(SDL_Renderer* renderer) {
 }
 
 // Render weapon texture
-void renderWeapon(SDL_Renderer* renderer, Camera* camera) {
+void renderWeapon(SDL_Renderer* renderer, Camera* camera __attribute__((unused))) {
     // Set position and size of weapon texture
     SDL_Rect weaponRect = {10, SCREEN_HEIGHT - 100, 100, 100}; // Example position and size
 
