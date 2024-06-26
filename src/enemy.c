@@ -2,9 +2,15 @@
 #include <SDL2/SDL_image.h>
 
 // Function definition
-void renderEnemies(SDL_Renderer* renderer) {
+bool renderEnemies(SDL_Renderer* renderer) {
     // Load texture images for enemies
-    SDL_Surface* enemySurface = IMG_Load("enemy_texture.png");
+    SDL_Surface* enemySurface = IMG_Load("image/enemy.jpeg");
+
+    // Check if surface loading was successful
+    if (!enemySurface) {
+        printf("Failed to load enemy surface: %s\n", IMG_GetError());
+        return false;  // Return false on failure
+    }
 
     // Convert surface to texture
     SDL_Texture* enemyTexture = SDL_CreateTextureFromSurface(renderer, enemySurface);
@@ -13,7 +19,7 @@ void renderEnemies(SDL_Renderer* renderer) {
     if (!enemyTexture) {
         printf("Failed to load enemy texture: %s\n", IMG_GetError());
         SDL_FreeSurface(enemySurface);
-        return;
+        return false;    // Return false on failure
     }
 
     // Render enemies at different positions
@@ -28,5 +34,7 @@ void renderEnemies(SDL_Renderer* renderer) {
     // Cleanup
     SDL_FreeSurface(enemySurface);
     SDL_DestroyTexture(enemyTexture);
+
+    return true;  // Return true on success
 }
 

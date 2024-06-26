@@ -13,14 +13,17 @@ bool moveRight = false;
  * This function handles game events and updates game state.
  * It contains the main game loop logic.
  */
-void gameLoop() {
+void gameLoop(SDL_Renderer* renderer) {
+     bool running = true;
+
     // Main game loop
-    while (1) {
+    while (running) {
         // Handle events
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
                 case SDL_QUIT:
+		     running = false;
                     // Handle quit event
                     break;
                 case SDL_KEYDOWN:
@@ -79,9 +82,17 @@ void gameLoop() {
         } else if (moveRight && !moveLeft) {
             // Move player right
         }
+	 // Clear screen
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
 
+        // Render game objects (example: draw a white rectangle)
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Set draw color to red
+        SDL_Rect testRect = {50, 50, 100, 100}; // Define a test rectangle
+        SDL_RenderFillRect(renderer, &testRect);
 
-        // Other game logic and rendering...
+        // Present the rendered frame
+        SDL_RenderPresent(renderer);
     }
 }
 

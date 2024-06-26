@@ -31,26 +31,26 @@ void castRays(SDL_Renderer* renderer, Camera* camera);
 void drawMap(SDL_Renderer* renderer, int map[][MAP_WIDTH], int mapWidth, int mapHeight,
              float playerX, float playerY, float playerAngle, int showMap);
 void renderScene(SDL_Renderer* renderer, Camera* camera);
-void loadTexture(__attribute__((unused))const char* filename, SDL_Renderer* renderer);
+bool loadTexture(__attribute__((unused))const char* filename, SDL_Renderer* renderer);
 int parseMapFromFile(const char* mapFilePath, int map[][MAP_WIDTH], int* mapWidth, int* mapHeight);
-void loadWeaponTextures(SDL_Renderer* renderer);
+bool loadWeaponTextures(SDL_Renderer* renderer);
 void updateCameraPosition(Camera* camera, SDL_Event event);
 void renderWeapon(SDL_Renderer* renderer, Camera* __attribute__((unused))camera );
-void renderEnemies(SDL_Renderer* renderer);
+bool renderEnemies(SDL_Renderer* renderer);
 void rotateCamera(Camera* camera, float angle);
 void renderTextures(SDL_Renderer* renderer);
 void renderRain(SDL_Renderer* renderer); // Added declaration for renderRain function
-void gameLoop();
+void gameLoop(SDL_Renderer* renderer);
 
 // Function to load and render textures
-void loadTexture(const char* filename, SDL_Renderer* renderer);
+bool loadTexture(const char* filename, SDL_Renderer* renderer);
 
 // Function to load and render weapon texture
-void loadWeaponTextures(SDL_Renderer* renderer);
+bool loadWeaponTextures(SDL_Renderer* renderer);
 void renderWeapon(SDL_Renderer* renderer, Camera* camera);
 
 // Function to render enemies
-void renderEnemies(SDL_Renderer* renderer);
+bool renderEnemies(SDL_Renderer* renderer);
 
 // Declaration of bool movement variables
 extern bool moveForward;

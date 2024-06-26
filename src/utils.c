@@ -4,8 +4,8 @@
 // Function definition
 void renderTextures(SDL_Renderer* renderer) {
     // Load texture images for ground and ceiling
-    SDL_Surface* groundSurface = IMG_Load("ground_texture.png");
-    SDL_Surface* ceilingSurface = IMG_Load("ceiling_texture.png");
+    SDL_Surface* groundSurface = IMG_Load("image/ground_Texture.png");
+    SDL_Surface* ceilingSurface = IMG_Load("image/ceiling_texture.png");
 
     // Convert surfaces to textures
     SDL_Texture* groundTexture = SDL_CreateTextureFromSurface(renderer, groundSurface);

@@ -56,21 +56,40 @@ int main(int argc, char* argv[])
     Camera __attribute__((unused))camera = {2, 2, 0};
 
     // Load ground and ceiling textures
-    loadTexture("ground_texture.png", renderer);
-    loadTexture("ceiling_texture.png", renderer);
+    if (!loadTexture("image/ground_texture.png", renderer) || !loadTexture("image/ceiling_texture.png", renderer))
+    {
+        fprintf(stderr, "Error: Failed to load ground or ceiling texture.\n");
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
 
     // Load weapon texture
-    loadWeaponTextures(renderer);
+    if (!loadWeaponTextures(renderer))
+    {
+        fprintf(stderr, "Error: Failed to load weapon textures.\n");
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
 
     // Render enemies
-    renderEnemies(renderer);
+    if (!renderEnemies(renderer))
+    {
+        fprintf(stderr, "Error: Failed to render enemies.\n");
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
 
     // Run the main game loop
-    gameLoop();
+    gameLoop(renderer);
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
     return 0;
 }
-

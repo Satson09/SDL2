@@ -2,12 +2,12 @@
 #include <SDL2/SDL_image.h>
 #include "main.h"
 
-void loadTexture(__attribute__((unused))const char* filename, SDL_Renderer* renderer) {
+bool loadTexture(__attribute__((unused))const char* filename, SDL_Renderer* renderer) {
     // Load image from file
-    SDL_Surface* surface = IMG_Load(filename);
+    SDL_Surface* surface = IMG_Load("image/texture.png");
     if (!surface) {
         printf("Failed to load image: %s\n", IMG_GetError());
-        return;
+        return false;  // Return false on failure;
     }
 
     // Convert surface to texture
@@ -15,7 +15,7 @@ void loadTexture(__attribute__((unused))const char* filename, SDL_Renderer* rend
     if (!texture) {
         printf("Failed to create texture from surface: %s\n", SDL_GetError());
         SDL_FreeSurface(surface);
-        return;
+        return false;  // Return false on failure;
     }
 
     // Render texture
@@ -25,5 +25,7 @@ void loadTexture(__attribute__((unused))const char* filename, SDL_Renderer* rend
     // Cleanup
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(surface);
+
+    return true;  // Return true on success
 }
 
